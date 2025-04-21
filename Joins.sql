@@ -23,25 +23,37 @@ VALUES
 ('Laura', 'Product Manager', 90000.00),
 ('Michael', 'Marketing Specialist', 54000.00),
 ('Nina', 'Financial Advisor', 67000.00);
+-- INNER JOIN
+SELECT *
+FROM Employee
+INNER JOIN Department ON Employee.department_id = Department.id;
 
--- 1. Select employees with salary greater than 60,000
-SELECT * FROM Employee WHERE salary > 60000;
+-- LEFT JOIN
+SELECT *
+FROM Employee
+LEFT JOIN Department ON Employee.department_id = Department.id;
 
--- 2. Select employees with the position 'Analyst'
-SELECT * FROM Employee WHERE position = 'Analyst';
+-- RIGHT JOIN
+SELECT *
+FROM Employee
+RIGHT JOIN Department ON Employee.department_id = Department.id;
 
--- 3. Find employees with positions that contain 'Manager'
-SELECT * FROM Employee WHERE position LIKE '%Manager%';
+-- FULL JOIN
+SELECT *
+FROM Employee
+FULL JOIN Department ON Employee.department_id = Department.id;
 
--- 4. Select employees whose names start with 'A'
-SELECT * FROM Employee WHERE name LIKE 'A%';
+-- CROSS JOIN
+SELECT *
+FROM Employee
+CROSS JOIN Department;
 
--- 5. Select employees with salaries between 50,000 and 75,000
-SELECT * FROM Employee WHERE salary BETWEEN 50000 AND 75000;
+-- SELF JOIN
+SELECT a.name AS Employee, b.name AS Manager
+FROM Employee a
+INNER JOIN Employee b ON a.manager_id = b.id;
 
--- 6. Select employees whose names end with 'a'
-SELECT * FROM Employee WHERE name LIKE '%a';
-
-
-
-
+-- NATURAL JOIN
+SELECT *
+FROM Employee
+NATURAL JOIN Department;
